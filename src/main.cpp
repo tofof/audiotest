@@ -8,6 +8,9 @@
 #include <string>
 #include <queue>
 
+//Setup for playing WAVs from the SD card.
+//The teensy 4.1 has 8 MB of program flash, so I could use wav2sketch to convert wavs to .h files and play directly from memory.
+//That would be faster, and would eliminate the SD card entirely, but it's not worth the effort right now.
 AudioPlaySdWav           sdWavPlayer1;
 AudioOutputI2S           i2s1;
 AudioConnection          patchCord1(sdWavPlayer1, 0, i2s1, 0);
