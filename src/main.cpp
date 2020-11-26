@@ -27,7 +27,7 @@ char keys[ROWS][COLS] = {
   {'D','E','F'},
 };
 byte rowPins[ROWS] = { 24, 25 };        // Connect keypad ROW0, ROW1, ROW2 and ROW3 to these Arduino pins.
-byte colPins[COLS] = { 41, 40, 39 };  // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
+byte colPins[COLS] = { 41, 40, 39 };    // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 std::queue<String> q;
