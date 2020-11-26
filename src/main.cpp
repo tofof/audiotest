@@ -5,6 +5,8 @@
 #include <SD.h>
 #include <SerialFlash.h>
 #include <Keypad.h>
+#include <string>
+#include <queue>
 
 AudioPlaySdWav           sdWavPlayer1;
 AudioOutputI2S           i2s1;
@@ -25,6 +27,8 @@ byte rowPins[ROWS] = { 24, 25 };        // Connect keypad ROW0, ROW1, ROW2 and R
 byte colPins[COLS] = { 41, 40, 39 };  // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
+std::queue<String> q;
+char key;
 
 void setup() {
   Serial.begin(9600);
@@ -39,11 +43,12 @@ void setup() {
       delay(500);
     }
   }
+  key = keypad.getKey(); //getKey can return a spurious hit on the first key the first time it's called because the keypad constructor doesn't initialize pins
   delay(1000);
 }
 
 void loop() {
-  char key = keypad.getKey();
+  key = keypad.getKey();
   if (key != NO_KEY) {
     Serial.printf("key:%c",key);
     // for (int i=0; i<ROWS; i++) {
@@ -55,16 +60,20 @@ void loop() {
     Serial.println();
 
     switch(key) {
-      case 'A': sdWavPlayer1.play("and.wav"); break;
-      case 'B': sdWavPlayer1.play("ball.wav"); break;
-      case 'C': sdWavPlayer1.play("come.wav"); break;
-      case 'D': sdWavPlayer1.play("done.wav"); break;
-      case 'E': sdWavPlayer1.play("eatfood.wav"); break;
-      case 'F': sdWavPlayer1.play("friend.wav"); break;
+      case 'A': q.push("and.wav"); break;
+      case 'B': q.push("ball.wav"); break;
+      case 'C': q.push("come.wav"); break;
+      case 'D': q.push("done.wav"); break;
+      case 'E': q.push("eatfood.wav"); break;
+      case 'F': q.push("friend.wav"); break;
     }
-    delay(10); //allow parsing file
   }
 
+  if (q.size()>0 && !sdWavPlayer1.isPlaying()) {
+    sdWavPlayer1.play(q.front().c_str());
+    q.pop();
+    delay(5); //access time, so we don't keep restarting playback
+  }
   
 }
 
