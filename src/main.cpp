@@ -30,7 +30,7 @@ void setup() {
   Serial.begin(9600);
   AudioMemory(8);
   sgtl5000_1.enable();
-  sgtl5000_1.volume(0.5);
+  sgtl5000_1.volume(0.5);   //TODO: change to 0.8 or more for installation
   SPI.setMOSI(SDCARD_MOSI_PIN);
   SPI.setSCK(SDCARD_SCK_PIN);
   if (!(SD.begin(SDCARD_CS_PIN))) {
@@ -43,34 +43,29 @@ void setup() {
 }
 
 void loop() {
-  if (sdWavPlayer1.isPlaying() == false) {
-    Serial.println("Start playing");
-    sdWavPlayer1.play("SDTEST2.WAV");
-    delay(10); // wait for library to parse WAV info
-  }
-  
   char key = keypad.getKey();
-  if (key != NO_KEY){
-    Serial.print("key:");
-    Serial.print(key);
-    for (int i=0; i<ROWS; i++) {
-      for (int j=0; j<COLS; j++) {
-        if (key == keys[i][j]) {
-          Serial.print(" row:");
-          Serial.print(i);
-          Serial.print(" col:");
-          Serial.print(j);
-          Serial.print(" rowpin:");
-          Serial.print(rowPins[i]);
-          Serial.print(" colpin:");
-          Serial.print(colPins[j]);
-          Serial.println(" "); 
-        }
-      }
+  if (key != NO_KEY) {
+    Serial.printf("key:%c",key);
+    // for (int i=0; i<ROWS; i++) {
+    //   for (int j=0; j<COLS; j++) {
+    //     if (key == keys[i][j]) 
+    //       Serial.printf("  row:%d  col:%d  rpin:%d  cpin:%d", i, j, rowPins[i], colPins[j]);
+    //   }
+    // }
+    Serial.println();
+
+    switch(key) {
+      case 'A': sdWavPlayer1.play("and.wav"); break;
+      case 'B': sdWavPlayer1.play("ball.wav"); break;
+      case 'C': sdWavPlayer1.play("come.wav"); break;
+      case 'D': sdWavPlayer1.play("done.wav"); break;
+      case 'E': sdWavPlayer1.play("eatfood.wav"); break;
+      case 'F': sdWavPlayer1.play("friend.wav"); break;
     }
+    delay(10); //allow parsing file
   }
 
-  // do nothing while playing...
+  
 }
 
 
