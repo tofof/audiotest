@@ -20,14 +20,20 @@ AudioControlSGTL5000     sgtl5000_1;
 #define SDCARD_MOSI_PIN  11  // not actually used
 #define SDCARD_SCK_PIN   13  // not actually used
 
-#define ROWS 2 
-#define COLS 3 
-char keys[ROWS][COLS] = {
-  {'A','B','C'},
-  {'D','E','F'},
+#define ROWS 8 
+#define COLS 10 
+char keys[ROWS][COLS] = {   //I would prefer to have both be zero-indexed but \x00 is NO_KEY
+  {'\x10','\x11','\x12','\x13','\x14','\x15','\x16','\x17','\x18','\x19'},
+  {'\x20','\x21','\x22','\x23','\x24','\x25','\x26','\x27','\x28','\x29'},
+  {'\x30','\x31','\x32','\x33','\x34','\x35','\x36','\x37','\x38','\x39'},
+  {'\x40','\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49'},
+  {'\x50','\x51','\x52','\x53','\x54','\x55','\x56','\x57','\x58','\x59'},
+  {'\x60','\x61','\x62','\x63','\x64','\x65','\x66','\x67','\x68','\x69'},
+  {'\x70','\x71','\x72','\x73','\x74','\x75','\x76','\x77','\x78','\x79'},
+  {'\x80','\x81','\x82','\x83','\x84','\x85','\x86','\x87','\x88','\x89'},
 };
-byte rowPins[ROWS] = { 24, 25 };        // Connect keypad ROW0, ROW1, ROW2 and ROW3 to these Arduino pins.
-byte colPins[COLS] = { 41, 40, 39 };    // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
+byte rowPins[ROWS] = { 41, 40, 39, 38, 37, 36, 35, 34 };        
+byte colPins[COLS] = { 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }; 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 std::queue<String> q;
@@ -53,7 +59,8 @@ void setup() {
 void loop() {
   key = keypad.getKey();
   if (key != NO_KEY) {
-    Serial.printf("key:%c",key);
+    Serial.printf("key: %c", key);
+    Serial.printf("  id: %02x", (int) key);
     // for (int i=0; i<ROWS; i++) {
     //   for (int j=0; j<COLS; j++) {
     //     if (key == keys[i][j]) 
