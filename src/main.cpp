@@ -5,7 +5,6 @@
 #include <SD.h>
 #include <SerialFlash.h>
 #include <Keypad.h>
-#include <string>
 #include <queue>
 
 //Setup for playing WAVs from the SD card.
@@ -36,8 +35,9 @@ byte rowPins[ROWS] = { 41, 40, 39, 38, 37, 36, 35, 34 };
 byte colPins[COLS] = { 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }; 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
-std::queue<String> q;
+std::queue<int> q;
 char key;
+char filename[6];
 
 void setup() {
   Serial.begin(9600);
@@ -68,23 +68,16 @@ void loop() {
     //   }
     // }
     Serial.println();
-
-    switch(key) {
-      case 'A': q.push("and.wav"); break;
-      case 'B': q.push("ball.wav"); break;
-      case 'C': q.push("come.wav"); break;
-      case 'D': q.push("done.wav"); break;
-      case 'E': q.push("eatfood.wav"); break;
-      case 'F': q.push("friend.wav"); break;
-    }
+    q.push((int) key);
   }
 
   if (q.size()>0 && !sdWavPlayer1.isPlaying()) {
-    sdWavPlayer1.play(q.front().c_str());
+    sprintf(filename, "%02x.wav", q.front());
+    Serial.printf("Playing %s\n", filename);
+    sdWavPlayer1.play(filename);
     q.pop();
     delay(5); //access time, so we don't keep restarting playback
   }
-  
 }
 
 
