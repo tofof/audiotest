@@ -46,11 +46,9 @@ void setup() {
   sgtl5000_1.volume(1.0);
   SPI.setMOSI(SDCARD_MOSI_PIN);
   SPI.setSCK(SDCARD_SCK_PIN);
-  if (!(SD.begin(SDCARD_CS_PIN))) {
-    while (1) {
+  while (!(SD.begin(SDCARD_CS_PIN))) {
       Serial.println("Unable to access the SD card");
       delay(500);
-    }
   }
   keypad.setDebounceTime(200); //lever action on these switches means bouncing can be pretty slow (default is only 10ms)
   key = keypad.getKey(); //getKey can return a spurious hit on the first key the first time it's called because the keypad constructor doesn't initialize pins
