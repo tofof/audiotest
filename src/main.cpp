@@ -52,6 +52,7 @@ void setup() {
       delay(500);
     }
   }
+  keypad.setDebounceTime(200); //lever action on these switches means bouncing can be pretty slow (default is only 10ms)
   key = keypad.getKey(); //getKey can return a spurious hit on the first key the first time it's called because the keypad constructor doesn't initialize pins
   delay(1000);
 }
@@ -79,6 +80,3 @@ void loop() {
     delay(5); //access time, so we don't keep restarting playback
   }
 }
-
-
-
