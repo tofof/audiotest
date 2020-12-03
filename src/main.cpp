@@ -31,8 +31,8 @@ char keys[ROWS][COLS] = {   //I would prefer to have both be zero-indexed but \x
   {'\x70','\x71','\x72','\x73','\x74','\x75','\x76','\x77','\x78','\x79'},
   {'\x80','\x81','\x82','\x83','\x84','\x85','\x86','\x87','\x88','\x89'},
 };
-byte rowPins[ROWS] = { 41, 40, 39, 38, 37, 36, 35, 34 };        
-byte colPins[COLS] = { 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }; 
+byte rowPins[ROWS] = { 24, 25, 26, 27, 28, 29, 30, 31 };        
+byte colPins[COLS] = { 41, 40, 39, 38, 37, 36, 35, 34, 33, 32 }; 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 std::queue<int> q;
@@ -43,7 +43,7 @@ void setup() {
   Serial.begin(9600);
   AudioMemory(8);
   sgtl5000_1.enable();
-  sgtl5000_1.volume(0.5);   //TODO: change to 0.8 or more for installation
+  sgtl5000_1.volume(1.0);
   SPI.setMOSI(SDCARD_MOSI_PIN);
   SPI.setSCK(SDCARD_SCK_PIN);
   if (!(SD.begin(SDCARD_CS_PIN))) {
