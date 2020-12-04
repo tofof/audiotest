@@ -39,6 +39,10 @@ std::queue<int> q;
 char key;
 char filename[6];
 
+elapsedMillis msSinceLastKeypress;
+#define DEBOUNCE_TIME 200
+
+
 void setup() {
   Serial.begin(9600);
   AudioMemory(8);
@@ -50,14 +54,14 @@ void setup() {
       Serial.println("Unable to access the SD card");
       delay(500);
   }
-  keypad.setDebounceTime(200); //lever action on these switches means bouncing can be pretty slow (default is only 10ms)
+  //keypad.setDebounceTime(200); //keypad's implementation limits how often key matrix is scanned, decreasing responsiveness
   key = keypad.getKey(); //getKey can return a spurious hit on the first key the first time it's called because the keypad constructor doesn't initialize pins
   delay(1000);
 }
 
 void loop() {
   key = keypad.getKey();
-  if (key != NO_KEY) {
+  if (key != NO_KEY && msSinceLastKeypress > DEBOUNCE_TIME) {
     Serial.printf("key: %c", key);
     Serial.printf("  id: %02x", (int) key);
     // for (int i=0; i<ROWS; i++) {
@@ -68,6 +72,7 @@ void loop() {
     // }
     Serial.println();
     q.push((int) key);
+    msSinceLastKeypress=0;
   }
 
   if (q.size()>0 && !sdWavPlayer1.isPlaying()) {
