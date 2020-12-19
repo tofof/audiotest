@@ -43,7 +43,6 @@ elapsedMillis msSinceLastEnqueue;
 #define DEBOUNCE_TIME_MINIMUM 100
 #define DEBOUNCE_TIME_IF_SAME 500
 
-
 void setup() {
   Serial.begin(9600);
   AudioMemory(8);
