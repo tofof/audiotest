@@ -21,7 +21,7 @@ AudioControlSGTL5000     sgtl5000_1;
 
 #define ROWS 8 
 #define COLS 10 
-char keys[ROWS][COLS] = {   //I would prefer to have both be zero-indexed but \x00 is NO_KEY
+char keys[ROWS][COLS] = {
   {'\x10','\x11','\x12','\x13','\x14','\x15','\x16','\x17','\x18','\x19'},
   {'\x20','\x21','\x22','\x23','\x24','\x25','\x26','\x27','\x28','\x29'},
   {'\x30','\x31','\x32','\x33','\x34','\x35','\x36','\x37','\x38','\x39'},
@@ -30,7 +30,7 @@ char keys[ROWS][COLS] = {   //I would prefer to have both be zero-indexed but \x
   {'\x60','\x61','\x62','\x63','\x64','\x65','\x66','\x67','\x68','\x69'},
   {'\x70','\x71','\x72','\x73','\x74','\x75','\x76','\x77','\x78','\x79'},
   {'\x80','\x81','\x82','\x83','\x84','\x85','\x86','\x87','\x88','\x89'},
-};
+}; //I would prefer to have both be zero-indexed but \x00 is NO_KEY
 byte rowPins[ROWS] = { 24, 25, 26, 27, 28, 29, 30, 31 };        
 byte colPins[COLS] = { 41, 40, 39, 38, 37, 36, 35, 34, 33, 32 }; 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
