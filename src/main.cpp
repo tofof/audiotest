@@ -19,6 +19,7 @@ AudioControlSGTL5000     sgtl5000_1;
 #define SDCARD_MOSI_PIN  11  // not actually used
 #define SDCARD_SCK_PIN   13  // not actually used
 
+//setup for keypad
 #define ROWS 8 
 #define COLS 10 
 char keys[ROWS][COLS] = {
