@@ -36,6 +36,7 @@ byte rowPins[ROWS] = { 24, 25, 26, 27, 28, 29, 30, 31 };
 byte colPins[COLS] = { 41, 40, 39, 38, 37, 36, 35, 34, 33, 32 }; 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
+//my variables
 std::queue<int> q;
 char key;
 char lastkey;
