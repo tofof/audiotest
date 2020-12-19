@@ -37,10 +37,11 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 std::queue<int> q;
 char key;
+char lastkey;
 char filename[6];
-
-elapsedMillis msSinceLastKeypress;
-#define DEBOUNCE_TIME 200
+elapsedMillis msSinceLastEnqueue;
+#define DEBOUNCE_TIME_MINIMUM 100
+#define DEBOUNCE_TIME_IF_SAME 500
 
 
 void setup() {
@@ -61,7 +62,7 @@ void setup() {
 
 void loop() {
   key = keypad.getKey();
-  if (key != NO_KEY && msSinceLastKeypress > DEBOUNCE_TIME) {
+  if (key != NO_KEY && msSinceLastEnqueue > DEBOUNCE_TIME_MINIMUM) {
     Serial.printf("key: %c", key);
     Serial.printf("  id: %02x", (int) key);
     // for (int i=0; i<ROWS; i++) {
@@ -71,8 +72,12 @@ void loop() {
     //   }
     // }
     Serial.println();
-    q.push((int) key);
-    msSinceLastKeypress=0;
+
+    if (key != lastkey || msSinceLastEnqueue > DEBOUNCE_TIME_IF_SAME) {
+      q.push((int) key);
+      lastkey=key;
+      msSinceLastEnqueue=0;
+    }
   }
 
   if (q.size()>0 && !sdWavPlayer1.isPlaying()) {
