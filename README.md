@@ -100,6 +100,7 @@ The basic idea of the wiring is that they keyboard switches are connected in a m
 
 ### Teensy Software
 1. Follow the Teensy [first-use tutorial](https://www.pjrc.com/teensy/first_use.html) to make sure it is working as expected. 
+
 2. Install the Arduino and Teensyduino software for your operating system following the instructions on the [download page](https://www.pjrc.com/teensy/td_download.html). It's best to allow the installer to add all the included libraries. At a minimum, you must install the `Audio`, `Keypad`, and `SD` libraries. 
 3. Download my [program](https://raw.githubusercontent.com/tofof/dog-keyboard/main/src/main.cpp) for the Teensy.
 4. Determine which of the remaining pins on the Teensy you will use; one pin is required for each row and column. 
@@ -117,6 +118,7 @@ If not, it's possible your SD card's access time is slower than expected. In tha
 
 ### Teensy Wiring
 1. Solder the 14-pin sockets into place on the the audio shield. Pay attention to the numbering of the pins; they must align to the same-numbered pins on the Teensy 4.1 board. You will need to solder the socket to either the top or the bottom of the shield according to which side needs to be facing the corresponding pins on the Teensy controller. 
+
 2. Plug the shield into the controller. 
 3. Install the Teensy into the project box. Test fit the connections, then cut or drill holes for the audio cable, usb cable, and (optionally) access to the SD card. 
 4. Bring the wires from the back of the board through the hole in the board and project box.
@@ -125,6 +127,7 @@ If not, it's possible your SD card's access time is slower than expected. In tha
 
 ### Final Steps
 1. Screw paddles into place for every desired button using the pocket-hole screws and the previously-piloted holes. Don't screw them on so tightly that the paddles cannot move.
+
 2. Glue geometric shapes onto the paddles. You may find it useful to let larger shapes cover the screws. 
 	Keep in mind that dogs have dichromatic vision with Blue and Yellow-Orange cones; they cannot generally distinguish Red from Green, for example. It's best if you use combinations of the geometric shapes so that each button's shape is physically distinct from any other buttons. If you need to duplicate shape, it's best for those buttons to be placed apart from one another so that they can still be distinguished by position.
 	None of this is absolutely essential, however -- dogs using commercial buttons distinguish them by position alone. 
