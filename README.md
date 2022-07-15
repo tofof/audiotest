@@ -16,16 +16,17 @@ I chose dimensions for my board that would allow it to be wall-mounted in a cent
 * Large, clear speaker with adjustable volume
 * Each button has a unique physical shape -- should be easier for everyone to learn
 * No 'erase' button that can be [hit accidentally](https://www.instagram.com/p/B4vTTyXhjwK/)
-* Less expensive (for large number of buttons)
+* Less expensive (for >45 buttons)
 
 ### Disadvantages
 * DIY build, requiring tools and many components
 * Electronic expertise (wiring an arduino-like microcontroller, soldering pins, uploading firmware)
 * Consumes power constantly, not merely when button pressed, so wireless time is limited to ~10 hours
 * More up-front work, even if adding buttons over time
+* More expensive (for <45 buttons)
 
 ## Components
-**1/4" x 4' x 4' Birch Plywood** -- Sometimes called a *handy panel* or *project panel*, this is the foundation of the AAC board. [Menards #1254046](https://www.menards.com/main/building-materials/panel-products/handi-panels/4-x-4-birch-plywood-handi-panel/1254046/p-1444441905350-c-13337.htm) ($27)
+**1/4" x 4' x 4' Birch Plywood** -- Sometimes called a *handy panel* or *project panel*, this is the foundation of the AAC board. [Menards #1254046](https://www.menards.com/main/building-materials/panel-products/handi-panels/4-x-4-birch-plywood-handi-panel/1254046/p-1444441905350-c-13337.htm) ($26.69)
 
 **3/8" x 36" Square Dowel (x8)** -- These are the mounting point and fulcrum for the buttons. One is required for each row of buttons. [Menards #2152154](https://www.menards.com/main/doors-windows-millwork/dowels-wooden-pins-plugs/madison-mill-poplar-square-dowels/444864/p-1444438755016.htm) ($10.64 @ $1.33 ea.)
 
