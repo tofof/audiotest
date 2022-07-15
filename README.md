@@ -107,13 +107,10 @@ The basic idea of the wiring is that they keyboard switches are connected in a m
 5. Edit [lines 35-36](https://github.com/tofof/dog-keyboard/blob/df448044fdddf9b8bd86df4d2e580c3ba55f3dbf/src/main.cpp#L35-L36) to correspond to the pins you have chosen to use. The pins must be named in order from top to bottom for the row pins, and from left to right for the column pins. 
 6. Edit [lines 23-34](https://github.com/tofof/dog-keyboard/blob/df448044fdddf9b8bd86df4d2e580c3ba55f3dbf/src/main.cpp#L35-L36) to match the shape of your board. In particular, define `ROWS` and `COLUMNS` according to your board, then edit the array. The array should correspond dimensionally to your layout, and should uniquely number each button position. Mine specifies the numbers 10-19 for the first row, 20-29 for the second, and soforth through 89. 
 Effectively, the column (0-9 in my case for 10 columns) specifies the ones digit, and the row (1-8 for 8 rows) specifies the tens digit. For example, *Help* is button 41 in the layout pictured below.
-![Layout diagram showing that columns specify the ones digit from 0-9, and rows specify the tens digit from 10-80](https://i.imgur.com/pWoVYsR.png)
-
+![Layout diagram showing that columns specify the ones digit from 0-9, and rows specify the tens digit from 10-80](https://i.imgur.com/pWoVYsR.png)<br>
 There are a couple of things to note. The numbers in the array are hexadecimal, which is why they are written as e.g. `\x41`. This means that the ones digit can actually span from 0-f, for 16 possible values, as can the 'tens' digit. However, **00 can't be used as a button identifier** for technical reasons (any button assigned to `\x00` will be nonfunctional). 
 If needed, you can assign any 2-digit hexadecimal number to any position -- you don't *have* to treat the columns and rows as indices. For example, if you wanted a 25-column, 4-row layout, you could assign 01..0f..19 as the first row's values, and 1a..32 as the second row, etc.
-
 7. Upload/flash the modified program to your Teensy. 
-
 8. Record .wav files for each button. I used [TextToWav](https://download.cnet.com/TextToWav/3000-2169_4-10773719.html) to record the words using the Windows speech engine, after downloading an [alternative voice](https://superuser.com/questions/1020849/get-more-microsoft-text-to-speech-voices) to pronounce them. The filename must correspond to the button id. To use the previous example, the *Help* button, id `\x41`, corresponds to the file `41.wav`, which is a recording of a voice saying the word "Help." 
 9. Copy the .wav files to the SD card (not in a folder, just directly on the drive) and install the SD card into the Teensy. Use the SD port on the base board, not the one on the audio shield.
 10. Connect power and a speaker to the Teensy, then short a row & column pin together. The corresponding .wav file should immediately play.
