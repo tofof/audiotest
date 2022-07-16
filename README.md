@@ -86,7 +86,7 @@ https://amazon.com/dp/B00J3O9YRY) ($19.99) which seems to be the smaller mono ve
 ### Board Wiring
 The basic idea of the wiring is that they keyboard switches are connected in a mesh. There's one wire per row, one wire per column. So, all the buttons in a given row share one wire in common, and all the buttons in one column share one wire in common, so that every button has a unique pair of wires.
 
-1. Mark the location where the project box will be mounted to the board. With the project box in place, drill through its floor at one corner and on through the board. This is where the wiring of the keyboard buttons will enter the project box. 
+1. Mark the location where the project box will be mounted to the board. With the project box in place, drill through its floor in the interior, near a corner, and on through the board. This is where the wiring of the keyboard buttons will enter the project box. 
 
 2. Determine the maximum length of wire needed - it must span the entire width of the board, and must be able to reach from the far corner of the board to wherever the microcontroller will be sited, plus a little to spare. The width plus the longest diagonal plus 6" should be adequtate.
 3. Cut one wire to that length to start; you may find you want to use many smaller wires instead of a few large ones.
