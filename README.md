@@ -88,7 +88,7 @@ The basic idea of the wiring is that they keyboard switches are connected in a m
 
 1. Mark the location where the project box will be mounted to the board. With the project box in place, drill through its floor in the interior, near a corner, and continue the hole through the board. This is where the wiring of the keyboard buttons will enter the project box. 
 
-2. Determine the maximum length of wire needed - it must span the entire width of the board, and must be able to reach from the far corner of the board to wherever the microcontroller will be sited, plus a little to spare. The width plus the longest diagonal plus 6" should be adequtate.
+2. Determine the maximum length of wire needed - the width of the board plus the longest diagonal plus 6" should be adequtate.
 3. Cut one wire to that length to start; you may find you want to use many smaller wires instead of a few large ones.
 4. Two alternative procedures:
 	* Lay the wire across the first row of keyboard switches, with a few extra inches at one end (and a large excess at the other). Start at a keyboard switch near the center: strip about 3/8" of insulation from the wire at that position. Loop the exposed wire around one pin (it doesn't matter which) on the keyboard switch and pull tight. Move to the next switch to the left or right and repeat, until the entire row is completed. 
