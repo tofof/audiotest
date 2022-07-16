@@ -23,6 +23,7 @@ I chose dimensions for my board that would allow it to be wall-mounted in a cent
 * Electronic expertise (wiring an arduino-like microcontroller, soldering pins, uploading firmware)
 * Consumes power constantly, not merely when button pressed, so wireless time is limited to ~10 hours
 * More up-front work, even if adding buttons over time
+* Full expense up-front, even if starting with only a few buttons for easier learning
 * More expensive (for <45 buttons)
 
 ## Components
