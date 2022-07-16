@@ -84,7 +84,7 @@ https://amazon.com/dp/B00J3O9YRY) ($19.99) which seems to be the smaller mono ve
 10. With all switches press-fit, hold the board horizontal and give several hard vertical shakes. If any keyboard switches fall out, reinsert them and secure with a little glue. 
 
 ### Board Wiring
-The basic idea of the wiring is that they keyboard switches are connected in a mesh. There's one wire per row, one wire per column. So, all the buttons in a given row share one wire in common, and all the buttons in one column share one wire in common, but every button has a unique row-column pair of wires.
+The basic idea of the wiring is that they keyboard switches are connected in a mesh. There's one wire per row, one wire per column. So, all the buttons in a given row share one wire in common, and all the buttons in one column share one wire in common, so that every button has a unique pair of wires.
 
 1. Mark the location where the project box will be mounted to the board. With the project box in place, drill through its floor at one corner and on through the board. This is where the wiring of the keyboard buttons will enter the project box. 
 
