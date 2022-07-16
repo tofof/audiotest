@@ -4,7 +4,7 @@
 A custom-built augmentative and alternative communication (AAC) board for dogs.
 
 ## Background
-In late 2019, speech pathologist Christina Hunger (hungerforwords.com) went viral for her dog Stella's use of an AAC board. I had tried to build a similar keyboard for my dog two years earlier, but was unable to figure out how to teach the meaning of the buttons, and had shelved the project. After seeing [this video](https://www.instagram.com/tv/CGsS6CwhN0N/?utm_source=ig_web_copy_link) in particular, I was inspired to try again, now with the understanding that **consistent, constant modeling the use of the board** as we speak to our dog allows them to learn it naturally. 
+In late 2019, speech pathologist Christina Hunger ([hungerforwords.com](https://www.hungerforwords.com)) went viral for her dog Stella's use of an AAC board. I had tried to build a similar keyboard for my dog two years earlier, but was unable to figure out how to teach the meaning of the buttons, and had shelved the project. After seeing [this video](https://www.instagram.com/tv/CGsS6CwhN0N/?utm_source=ig_web_copy_link) in particular, I was inspired to try again, now with the understanding that **consistent, constant modeling the use of the board** as we speak to our dog allows them to learn it naturally. 
 
 ## Design Considerations
 I wanted a board that had a single speaker and a single power source, rather than relying on individual commercial buttons that each have to contain batteries, a microphone, and a tiny speaker. 
