@@ -114,7 +114,7 @@ If needed, you can assign any 2-digit hexadecimal number to any position -- you 
 7. Upload/flash the modified program to your Teensy. 
 8. Record .wav files for each button. I used [TextToWav](https://download.cnet.com/TextToWav/3000-2169_4-10773719.html) to record the words using the Windows speech engine, after downloading an [alternative voice](https://superuser.com/questions/1020849/get-more-microsoft-text-to-speech-voices) to pronounce them. The filename must correspond to the button id. To use the previous example, the *Help* button, id `\x41`, corresponds to the file `41.wav`, which is a recording of a voice saying the word "Help." 
 9. Copy the .wav files to the SD card (not in a folder, just directly on the drive) and install the SD card into the Teensy. Use the SD port on the base board, not the one on the audio shield.
-10. Connect power and a speaker to the Teensy, then short a row & column pin together. The corresponding .wav file should immediately play.
+10. (After step 2 of Teensy Wiring) Connect power and a speaker to the Teensy, then short a row & column pin together. The corresponding .wav file should immediately play.
 If not, it's possible your SD card's access time is slower than expected. In that case, increase the value (milliseconds) on [line 89](https://github.com/tofof/dog-keyboard/blob/df448044fdddf9b8bd86df4d2e580c3ba55f3dbf/src/main.cpp#L89), reupload the program, and try again. If the value is already as high as 100 milliseconds and it's still not working, then there's a problem with your pin specifications, your connection between the Teensy controller board and the audio shield, or something else.
 
 ### Teensy Wiring
